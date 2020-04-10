@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:timetrackerfluttercourse/app/home/job_entries/date_time_picker.dart';
+import 'package:timetrackerfluttercourse/common_widgets/date_time_picker.dart';
 import 'package:timetrackerfluttercourse/app/home/job_entries/format.dart';
 import 'package:timetrackerfluttercourse/app/home/models/entry.dart';
 import 'package:timetrackerfluttercourse/app/home/models/job.dart';
@@ -15,7 +15,7 @@ class EntryPage extends StatefulWidget {
   final Database database;
 
   static Future<void> show({BuildContext context, Database database, Job job, Entry entry}) async {
-    await Navigator.of(context).push(
+    await Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute(
         builder: (context) =>
             EntryPage(database: database, job: job, entry: entry),
